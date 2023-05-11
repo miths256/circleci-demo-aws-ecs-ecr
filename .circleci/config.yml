@@ -15,7 +15,7 @@ workflows:
             - aws-ecr/build_and_push_image
           aws-region: ${AWS_DEFAULT_REGION}
           family: "${AWS_RESOURCE_NAME_PREFIX}-service"
-          cluster-name: "cutover-test-test"
+          cluster-name: "ecr-ci-cluster"
           container-image-name-updates: "container=${AWS_RESOURCE_NAME_PREFIX}-service,image-and-tag=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${AWS_RESOURCE_NAME_PREFIX}:${CIRCLE_SHA1}"
           verify-revision-is-deployed: true
           post-steps:
